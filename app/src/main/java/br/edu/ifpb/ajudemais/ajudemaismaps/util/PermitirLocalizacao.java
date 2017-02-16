@@ -1,4 +1,4 @@
-package br.edu.ifpb.ajudemais.ajudemaismaps;
+package br.edu.ifpb.ajudemais.ajudemaismaps.util;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.DialogFragment;
 import android.widget.Toast;
+
+import br.edu.ifpb.ajudemais.ajudemaismaps.activities.MapsActivity;
 
 /**
  * Created by rafaelfeitosa on 13/02/17.

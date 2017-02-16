@@ -19,6 +19,10 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.ifpb.ajudemais.ajudemaismaps.entities.Distancia;
+import br.edu.ifpb.ajudemais.ajudemaismaps.entities.Duracao;
+import br.edu.ifpb.ajudemais.ajudemaismaps.entities.Rota;
+
 /**
  * Created by rafaelfeitosa on 14/02/17.
  */

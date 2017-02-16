@@ -1,4 +1,4 @@
-package br.edu.ifpb.ajudemais.ajudemaismaps;
+package br.edu.ifpb.ajudemais.ajudemaismaps.activities;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -35,9 +35,11 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.ifpb.ajudemais.ajudemaismaps.util.PermitirLocalizacao;
+import br.edu.ifpb.ajudemais.ajudemaismaps.R;
 import br.edu.ifpb.ajudemais.ajudemaismaps.googledirectionapi.DirecaoMapa;
 import br.edu.ifpb.ajudemais.ajudemaismaps.googledirectionapi.DirecaoMapaListener;
-import br.edu.ifpb.ajudemais.ajudemaismaps.googledirectionapi.Rota;
+import br.edu.ifpb.ajudemais.ajudemaismaps.entities.Rota;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnMapClickListener, ActivityCompat.OnRequestPermissionsResultCallback, DirecaoMapaListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 

@@ -1,4 +1,4 @@
-package br.edu.ifpb.ajudemais.ajudemaismaps.googledirectionapi;
+package br.edu.ifpb.ajudemais.ajudemaismaps.entities;
 
 import com.google.android.gms.maps.model.LatLng;
 
