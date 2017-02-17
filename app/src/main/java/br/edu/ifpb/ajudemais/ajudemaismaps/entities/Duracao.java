@@ -14,5 +14,11 @@ public class Duracao {
         this.valor = valor;
     }
 
-
+    @Override
+    public String toString() {
+        return "Duracao{" +
+                "texto='" + texto + '\'' +
+                ", valor=" + valor +
+                '}';
+    }
 }

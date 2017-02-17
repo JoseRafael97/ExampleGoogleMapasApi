@@ -13,4 +13,12 @@ public class Distancia {
         this.texto = texto;
         this.valor = valor;
     }
+
+    @Override
+    public String toString() {
+        return "Distancia{" +
+                "texto='" + texto + '\'' +
+                ", valor=" + valor +
+                '}';
+    }
 }

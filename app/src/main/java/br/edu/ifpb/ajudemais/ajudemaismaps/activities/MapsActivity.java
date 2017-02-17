@@ -51,7 +51,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Button btnBuscar;
     private EditText etOrigem;
     private EditText etDestino;
-    private EditText etDestino2;
 
     private List<Marker> originMarkers = new ArrayList<>();
     private List<Marker> destinationMarkers = new ArrayList<>();
@@ -94,7 +93,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private void sendRequest() {
         String origem = etOrigem.getText().toString();
         String destino = etDestino.getText().toString();
-        String destino2 = etDestino2.getText().toString();
 
         if (origem.isEmpty()) {
             Toast.makeText(this, "Por favor preencha a origem", Toast.LENGTH_SHORT).show();
@@ -105,14 +103,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             return;
         }
 
-        if (destino2.isEmpty()) {
-            Toast.makeText(this, "Por favor preencha o destino 2", Toast.LENGTH_SHORT).show();
-            return;
-        }
 
         try {
             new DirecaoMapa(this, origem, destino).executar();
-            new DirecaoMapa(this, origem, destino2).executar();
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -220,6 +213,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         polylinePaths = new ArrayList<>();
         originMarkers = new ArrayList<>();
         destinationMarkers = new ArrayList<>();
+
+        progressDialog.dismiss();
+
 
         for (Rota rota : rotas) {
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(rota.getLocalizacaoOrigem(), 16));

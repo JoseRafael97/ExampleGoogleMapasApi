@@ -74,4 +74,17 @@ public class Rota {
     public void setDistancia(Distancia distancia) {
         this.distancia = distancia;
     }
+
+    @Override
+    public String toString() {
+        return "Rota{" +
+                "distancia=" + distancia +
+                ", duracao=" + duracao +
+                ", enderecoDestino='" + enderecoDestino + '\'' +
+                ", localizacaoDestino=" + localizacaoDestino +
+                ", enderecoOrigem='" + enderecoOrigem + '\'' +
+                ", localizacaoOrigem=" + localizacaoOrigem +
+                ", points=" + points +
+                '}';
+    }
 }

@@ -13,4 +13,26 @@
     tools:context="br.edu.ifpb.ajudemais.ajudemaismaps.activities.ActivityMain"
     tools:showIn="@layout/app_bar_activity_main">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buscar"
+            android:id="@+id/btnmylocalizacao" />
+
+
+        <TextView
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 km"
+            android:id="@+id/tvminhalocalizacao" />
+
+
+    </LinearLayout>
+
 </RelativeLayout>
