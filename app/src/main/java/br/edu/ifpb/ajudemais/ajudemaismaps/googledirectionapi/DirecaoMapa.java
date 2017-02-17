@@ -110,13 +110,13 @@ public class DirecaoMapa {
             JSONObject jsonLocalizacaoDestino = jsonLeg.getJSONObject("end_location");
             JSONObject jsonLocalizacaoOrigem = jsonLeg.getJSONObject("start_location");
 
-            rota.distancia = new Distancia(jsonDistancia.getString("text"), jsonDistancia.getInt("value"));
-            rota.duracao = new Duracao(jsonDuracao.getString("text"), jsonDuracao.getInt("value"));
-            rota.enderecoDestino = jsonLeg.getString("end_address");
-            rota.enderecoOrigem = jsonLeg.getString("start_address");
-            rota.localizacaoOrigem = new LatLng(jsonLocalizacaoOrigem.getDouble("lat"), jsonLocalizacaoOrigem.getDouble("lng"));
-            rota.localizacaoDestino = new LatLng(jsonLocalizacaoDestino.getDouble("lat"), jsonLocalizacaoDestino.getDouble("lng"));
-            rota.points = decodePolyLine(overview_polylineJson.getString("points"));
+            rota.setDistancia(new Distancia(jsonDistancia.getString("text"), jsonDistancia.getInt("value")));
+            rota.setDuracao(new Duracao(jsonDuracao.getString("text"), jsonDuracao.getInt("value")));
+            rota.setEnderecoDestino(jsonLeg.getString("end_address"));
+            rota.setEnderecoOrigem(jsonLeg.getString("start_address"));
+            rota.setLocalizacaoOrigem(new LatLng(jsonLocalizacaoOrigem.getDouble("lat"), jsonLocalizacaoOrigem.getDouble("lng")));
+            rota.setLocalizacaoDestino(new LatLng(jsonLocalizacaoDestino.getDouble("lat"), jsonLocalizacaoDestino.getDouble("lng")));
+            rota.setPoints(decodePolyLine(overview_polylineJson.getString("points")));
 
             rotas.add(rota);
         }

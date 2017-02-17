@@ -73,7 +73,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         btnBuscar = (Button) findViewById(R.id.btnBuscar);
         etOrigem = (EditText) findViewById(R.id.etOrigem);
         etDestino = (EditText) findViewById(R.id.etDestino);
-        etDestino2 = (EditText) findViewById(R.id.etDestino2);
 
         // Create an instance of GoogleAPIClient.
         if (mGoogleApiClient == null) {
@@ -194,8 +193,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onEncontrarDirecaoOrigem() {
-//        progressDialog = ProgressDialog.show(this, "Por Favor aguarde!",
-//                "Buscando direções..!", true);
+        progressDialog = ProgressDialog.show(this, "Por Favor aguarde!",
+                "Buscando direções..!", true);
 
         if (originMarkers != null) {
             for (Marker marker : originMarkers) {
@@ -223,28 +222,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         destinationMarkers = new ArrayList<>();
 
         for (Rota rota : rotas) {
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(rota.localizacaoOrigem, 16));
-            ((TextView) findViewById(R.id.tvDuracao)).setText(rota.duracao.texto);
-            ((TextView) findViewById(R.id.tvDistancia)).setText(rota.distancia.texto);
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(rota.getLocalizacaoOrigem(), 16));
+            ((TextView) findViewById(R.id.tvDuracao)).setText(rota.getDuracao().texto);
+            ((TextView) findViewById(R.id.tvDistancia)).setText(rota.getDistancia().texto);
 
-//            if(cont>0) {
-//                ((TextView) findViewById(R.id.tvDuracao2)).setText("Destino 2: "+rota.duracao.texto);
-//                ((TextView) findViewById(R.id.tvDistancia2)).setText("Destino 2: "+rota.distancia.texto);
-//            }
             originMarkers.add(mMap.addMarker(new MarkerOptions()
-                    .title(rota.enderecoOrigem)
-                    .position(rota.localizacaoOrigem)));
+                    .title(rota.getEnderecoOrigem())
+                    .position(rota.getLocalizacaoOrigem())));
             destinationMarkers.add(mMap.addMarker(new MarkerOptions()
-                    .title(rota.enderecoDestino)
-                    .position(rota.localizacaoDestino)));
+                    .title(rota.getEnderecoDestino())
+                    .position(rota.getLocalizacaoDestino())));
 
             PolylineOptions polylineOptions = new PolylineOptions().
                     geodesic(true).
                     color(Color.BLUE).
                     width(10);
 
-            for (int i = 0; i < rota.points.size(); i++)
-                polylineOptions.add(rota.points.get(i));
+            for (int i = 0; i < rota.getPoints().size(); i++)
+                polylineOptions.add(rota.getPoints().get(i));
 
             polylinePaths.add(mMap.addPolyline(polylineOptions));
         }

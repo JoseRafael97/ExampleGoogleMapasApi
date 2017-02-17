@@ -10,12 +10,68 @@ import java.util.List;
 
 public class Rota {
 
-    public Distancia distancia;
-    public Duracao duracao;
-    public String enderecoDestino;
-    public LatLng localizacaoDestino;
-    public String enderecoOrigem;
-    public LatLng localizacaoOrigem;
+    private Distancia distancia;
+    private Duracao duracao;
+    private String enderecoDestino;
+    private LatLng localizacaoDestino;
+    private String enderecoOrigem;
+    private LatLng localizacaoOrigem;
 
-    public List<LatLng> points;
+    private List<LatLng> points;
+
+    public List<LatLng> getPoints() {
+        return points;
+    }
+
+    public void setPoints(List<LatLng> points) {
+        this.points = points;
+    }
+
+    public LatLng getLocalizacaoOrigem() {
+        return localizacaoOrigem;
+    }
+
+    public void setLocalizacaoOrigem(LatLng localizacaoOrigem) {
+        this.localizacaoOrigem = localizacaoOrigem;
+    }
+
+    public String getEnderecoOrigem() {
+        return enderecoOrigem;
+    }
+
+    public void setEnderecoOrigem(String enderecoOrigem) {
+        this.enderecoOrigem = enderecoOrigem;
+    }
+
+    public LatLng getLocalizacaoDestino() {
+        return localizacaoDestino;
+    }
+
+    public void setLocalizacaoDestino(LatLng localizacaoDestino) {
+        this.localizacaoDestino = localizacaoDestino;
+    }
+
+    public String getEnderecoDestino() {
+        return enderecoDestino;
+    }
+
+    public void setEnderecoDestino(String enderecoDestino) {
+        this.enderecoDestino = enderecoDestino;
+    }
+
+    public Duracao getDuracao() {
+        return duracao;
+    }
+
+    public void setDuracao(Duracao duracao) {
+        this.duracao = duracao;
+    }
+
+    public Distancia getDistancia() {
+        return distancia;
+    }
+
+    public void setDistancia(Distancia distancia) {
+        this.distancia = distancia;
+    }
 }
