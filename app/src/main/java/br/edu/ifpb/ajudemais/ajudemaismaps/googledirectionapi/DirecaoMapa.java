@@ -25,27 +25,48 @@ import br.edu.ifpb.ajudemais.ajudemaismaps.entities.Rota;
 
 /**
  * Created by rafaelfeitosa on 14/02/17.
+ * Classe que estabelece comunicação entre Google maps e app
  */
 
 public class DirecaoMapa {
 
+    //url para utilizar directions Google Maps API.
     private static final String DIRECTION_URL_API = "https://maps.googleapis.com/maps/api/directions/json?";
+
+    //chave de acesso a API
     private static final String GOOGLE_API_KEY = "AIzaSyAMV2tOqh18Y0G4whvFRg3jpkTPI7v9Q6U";
+
+    //ouvinte para solicitar mudança
     private DirecaoMapaListener listener;
     private String origem;
     private String destino;
 
+    /**
+     * Construtor
+     * @param listener
+     * @param origem
+     * @param destino
+     */
     public DirecaoMapa(DirecaoMapaListener listener, String origem, String destino){
         this.destino = destino;
         this.origem = origem;
         this.listener = listener;
     }
 
+    /**
+     * Executa chamada na API directions
+     * @throws UnsupportedEncodingException
+     */
     public void executar() throws UnsupportedEncodingException {
         listener.onEncontrarDirecaoOrigem();
         new DownloadRawData().execute(criarUrl());
     }
 
+    /**
+     * Cria URL para requisição
+     * @return
+     * @throws UnsupportedEncodingException
+     */
     private String criarUrl() throws UnsupportedEncodingException {
         String urlOrigin = URLEncoder.encode(origem, "utf-8");
         String urlDestination = URLEncoder.encode(destino, "utf-8");
@@ -53,7 +74,9 @@ public class DirecaoMapa {
         return DIRECTION_URL_API + "origin=" + urlOrigin + "&destination=" + urlDestination + "&key=" + GOOGLE_API_KEY;
     }
 
-
+    /**
+     * Recebe os dados de resposta da requisição e converse para objeto
+     */
     private class DownloadRawData extends AsyncTask<String, Void, String> {
 
         @Override
@@ -90,11 +113,15 @@ public class DirecaoMapa {
         }
     }
 
+
+    /**
+     * Transforma dados em objetos.
+     * @param data
+     * @throws JSONException
+     */
     private void parseJSon(String data) throws JSONException {
         if (data == null)
             return;
-
-        System.out.println("Dados : "+ data);
 
         List<Rota> rotas = new ArrayList<Rota>();
         JSONObject jsonData = new JSONObject(data);
@@ -124,6 +151,11 @@ public class DirecaoMapa {
         listener.onDirecaoEncontradaComSucesso(rotas);
     }
 
+    /**
+     * Desenha polígono no mapa
+     * @param poly
+     * @return
+     */
     private List<LatLng> decodePolyLine(final String poly) {
         int len = poly.length();
         int index = 0;

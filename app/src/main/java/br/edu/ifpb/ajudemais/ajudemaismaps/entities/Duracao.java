@@ -2,6 +2,8 @@ package br.edu.ifpb.ajudemais.ajudemaismaps.entities;
 
 /**
  * Created by rafaelfeitosa on 14/02/17.
+ *
+ * Representa a duração da viagem entre ponto a e b.
  */
 
 public class Duracao {

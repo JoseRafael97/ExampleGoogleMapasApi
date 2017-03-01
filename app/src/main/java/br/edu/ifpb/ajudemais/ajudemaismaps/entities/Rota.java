@@ -6,6 +6,8 @@ import java.util.List;
 
 /**
  * Created by rafaelfeitosa on 14/02/17.
+ *
+ * Representa as rotas de um trajeto
  */
 
 public class Rota {

@@ -114,6 +114,9 @@ public class ActivityMain extends AppCompatActivity
         return true;
     }
 
+    /**
+     * Pega minha localização atual via GPS é seta em um campo para exibição
+     */
     private void setMinhaLocalizacao() {
 
         String latitude = "";

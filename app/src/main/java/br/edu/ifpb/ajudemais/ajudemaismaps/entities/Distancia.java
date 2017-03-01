@@ -2,6 +2,7 @@ package br.edu.ifpb.ajudemais.ajudemaismaps.entities;
 
 /**
  * Created by rafaelfeitosa on 14/02/17.
+ * Representa a distância entre ponto a e b.
  */
 
 public class Distancia {

@@ -2,6 +2,7 @@ package br.edu.ifpb.ajudemais.ajudemaismaps.entities;
 
 /**
  * Created by rafaelfeitosa on 16/02/17.
+ * Representa endereço que será passado.
  */
 
 public class Endereco {
